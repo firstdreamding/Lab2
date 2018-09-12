@@ -40,30 +40,28 @@ public class SolveMaze {
             } catch (Exception e) {
 
             }
-
-
-
-            if (maze.isFinished()){
-                break;
-            }
-            maze.turnRight();
-            if (maze.canMove()) {
+                if (maze.isFinished()) {
+                    break;
+                }
+                maze.turnRight();
+                if (maze.canMove()) {
+                    maze.move();
+                    continue;
+                }
+                maze.turnLeft();
+                if (maze.canMove()) {
+                    maze.move();
+                    continue;
+                }
+                maze.turnLeft();
                 maze.move();
-                continue;
-            }
-            maze.turnLeft();
-            if (maze.canMove()) {
-                maze.move();
-                continue;
-            }
-            maze.turnLeft();
-            maze.move();
-        }
 
-        if (maze.isFinished()) {
-            System.out.println("You solved the maze!");
-        } else {
-            System.out.println("Try again!");
+
         }
+            if (maze.isFinished()) {
+                System.out.println("You solved the maze!");
+            } else {
+                System.out.println("Try again!");
+            }
     }
 }
